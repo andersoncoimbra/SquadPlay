@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/novidades', ['uses'=> 'Novidades@index']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix'=>'admin'], function (){
+    Route::get('/', ['uses'=> 'AdminController@index']);
+    Route::get('/novidades', ['uses'=> 'AdminController@novidades']);
+    Route::get('/atleticas', ['uses'=> 'AdminController@atleticas']);
+});
