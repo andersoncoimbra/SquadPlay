@@ -50,11 +50,7 @@ class UrlsTest extends TestCase
         $home = $this->get('/password/reset');
         $home->assertStatus(200);
     }
-    public function testUrlNovidades()
-    {
-        $home = $this->get('/novidades');
-        $home->assertStatus(200);
-    }
+
     public function testUrlAdmin()
     {
         $this->withoutMiddleware();
@@ -72,6 +68,17 @@ class UrlsTest extends TestCase
     {
         $this->withoutMiddleware();
         $home = $this->get('/admin/novidades');
+        $home->assertStatus(200);
+    }
+    public function testUrlAdminAddNovidades()
+    {
+        $this->withoutMiddleware();
+        $home = $this->get('/admin/add/novidades');
+        $home->assertStatus(200);
+    }
+    public function testUrlNovidades()
+    {
+        $home = $this->get('/news');
         $home->assertStatus(200);
     }
 }

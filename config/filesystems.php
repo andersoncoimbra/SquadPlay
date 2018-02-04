@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'ftp'),
 
     /*
     |--------------------------------------------------------------------------
@@ -61,6 +61,19 @@ return [
             'secret' => env('AWS_SECRET'),
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
+        ],
+        'ftp' => [
+            'driver'   => 'ftp',
+            'host'     => 'ftp.insetpara.com.br',
+            'username' => 'squad@insetpara.com.br',
+            'password' => '$1701ii@92',
+
+            // Optional FTP Settings...
+             'port'     => 21,
+            // 'root'     => '',
+            // 'passive'  => true,
+            // 'ssl'      => true,
+            // 'timeout'  => 30,
         ],
 
     ],

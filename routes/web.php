@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/novidades', ['uses'=> 'Novidades@index']);
+Route::get('/news', ['middleware' => 'cors','uses'=> 'NovidadesController@index']);
 
 Auth::routes();
 
@@ -23,5 +23,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['prefix'=>'admin'], function (){
     Route::get('/', ['uses'=> 'AdminController@index']);
     Route::get('/novidades', ['uses'=> 'AdminController@novidades']);
+    Route::get('/add/novidades', ['uses'=> 'AdminController@addnovidades', 'as'=>'addnovidade']);
+    Route::post('/add/novidades', ['uses'=> 'AdminController@postaddnovidades', 'as'=>'postaddnovidade']);
     Route::get('/atleticas', ['uses'=> 'AdminController@atleticas']);
 });
